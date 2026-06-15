@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>教学评价填写助手</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <h1>教学评价填写助手</h1>
+    <p class="notice">请按真实体验核对评价。插件不会点击最终“提交”。</p>
+
+    <label>
+      默认评分
+      <select id="rating">
+        <option>优秀</option>
+        <option>良好</option>
+        <option>一般</option>
+        <option>差</option>
+      </select>
+    </label>
+
+    <label>
+      推荐语模板（每行一条）
+      <textarea id="recommendationTemplates" rows="6"></textarea>
+    </label>
+
+    <label>
+      课程意见模板（每行一条）
+      <textarea id="feedbackTemplates" rows="6"></textarea>
+    </label>
+
+    <label class="checkbox">
+      <input id="autoSave" type="checkbox">
+      自动点击“暂存”并确认仅保存、不完成评价的提示
+    </label>
+
+    <div class="actions">
+      <button id="scan" class="secondary">扫描课程</button>
+      <button id="start">开始填充</button>
+      <button id="stop" class="danger">停止</button>
+    </div>
+
+    <section>
+      <h2>运行状态</h2>
+      <div id="summary">尚未扫描</div>
+      <ol id="courses"></ol>
+    </section>
+  </main>
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

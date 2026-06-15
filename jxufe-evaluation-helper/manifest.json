@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "江财教学评价填写助手",
+  "version": "1.0.2",
+  "description": "在江西财经大学教学评价页面批量填写评价，并在最终提交前要求人工核对。",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://jwxt.jxufe.edu.cn/*"
+  ],
+  "action": {
+    "default_title": "教学评价填写助手",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jwxt.jxufe.edu.cn/*"
+      ],
+      "js": [
+        "confirm-guard.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://jwxt.jxufe.edu.cn/*"
+      ],
+      "js": [
+        "shared.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

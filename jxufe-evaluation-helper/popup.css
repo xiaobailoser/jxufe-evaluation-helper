@@ -1,0 +1,116 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #17212b;
+}
+
+body {
+  width: 410px;
+  margin: 0;
+  background: #f4f7f6;
+}
+
+main {
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+h2 {
+  margin: 16px 0 8px;
+  font-size: 15px;
+}
+
+.notice {
+  padding: 9px;
+  border-left: 4px solid #168f68;
+  background: #e8f6f1;
+  font-size: 12px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 5px;
+  border: 1px solid #c8d2cf;
+  border-radius: 5px;
+  padding: 8px;
+  background: white;
+  font: inherit;
+  resize: vertical;
+}
+
+.checkbox {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-weight: 400;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+button {
+  border: 0;
+  border-radius: 5px;
+  padding: 9px;
+  color: white;
+  background: #168f68;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: #526b78;
+}
+
+button.danger {
+  background: #a23b3b;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+#summary {
+  padding: 8px;
+  border-radius: 5px;
+  background: white;
+  font-size: 12px;
+}
+
+#courses {
+  max-height: 190px;
+  overflow: auto;
+  padding-left: 24px;
+  font-size: 12px;
+}
+
+#courses li {
+  margin: 6px 0;
+}
+
+.status-failed {
+  color: #a23b3b;
+}
+
+.status-saved,
+.status-filled,
+.status-complete {
+  color: #087153;
+}

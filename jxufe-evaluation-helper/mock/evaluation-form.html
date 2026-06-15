@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>提交教学评价表</title>
+  <style>
+    dialog { width: min(760px, 90vw); max-height: 80vh; overflow: auto; }
+    fieldset { margin: 12px 0; }
+    textarea { width: 100%; min-height: 70px; }
+  </style>
+</head>
+<body>
+  <dialog id="evaluation-dialog">
+    <form>
+      <h2>提交教学评价表</h2>
+      <div id="questions"></div>
+      <label>你愿意将这门课程推荐给其他同学吗？（必填）<textarea required></textarea></label>
+      <label>你对于这门课程的相关意见（必填）<textarea required></textarea></label>
+      <button type="button" id="save">暂存</button>
+      <button type="button" id="close">关闭</button>
+    </form>
+  </dialog>
+  <script>
+    const questions = document.querySelector("#questions");
+    for (let index = 1; index <= 16; index += 1) {
+      questions.insertAdjacentHTML("beforeend", `<fieldset><legend>${index}. 模拟评价指标</legend>${["优秀", "良好", "一般", "差"].map(value => `<label><input type="radio" name="q${index}" value="${value}">${value}</label>`).join(" ")}</fieldset>`);
+    }
+
+    const dialog = document.querySelector("#evaluation-dialog");
+    document.querySelector("#save").addEventListener("click", () => {
+      const form = dialog.querySelector("form");
+      parent.parent.mockSaved.push({
+        checked: form.querySelectorAll("input[type='radio']:checked").length,
+        text: Array.from(form.querySelectorAll("textarea")).map(item => item.value)
+      });
+      parent.parent.mockMarkSaved();
+      dialog.close();
+      form.reset();
+    });
+    document.querySelector("#close").addEventListener("click", () => dialog.close());
+  </script>
+</body>
+</html>
